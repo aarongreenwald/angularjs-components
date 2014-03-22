@@ -1,0 +1,61 @@
+<div ng-controller="NavigableTableCtrl">
+	Note that ag-navigable-table ignores cells with no input in them.
+	<button class="btn btn-default" ng-click="hideSome = !hideSome">Hide Some Rows</button>
+<table class="table table-condensed table-striped">
+<thead>
+	<tr>
+		<td>ID</td>
+		<td>First Name</td>
+		<td>Last Name</td>
+		<td>Text Placeholder</td>
+		<td>Jersey #</td>
+		<td>Position</td>
+	</tr>
+</thead>
+<tbody ag-navigable-table>
+	<tr ng-repeat="player in roster">
+		<td>{{$index}}</td>
+		<td>
+			<input type = "text"/>
+		</td>
+		<td>
+			<input type = "text"/>
+		</td>
+		<td>
+			<span class="label label-warning">No Input!</span>
+		</td>
+		<td>
+			<input type = "number"/><input type = "number" value="Second input in this td is ignored"/>
+		</td>
+		<td>
+			<input type = "text"/>
+		</td>
+	</tr>
+	<tr>
+		<td>Some text here in middle of everything</td>
+	</tr>
+	<tr ng-repeat="player in roster" ng-show="show($index)">
+		<td>{{$index}}</td>
+		<td>
+			<input type = "text"/>
+		</td>
+		<td>
+			<input type = "text"/>
+		</td>
+		<td>
+			<span class="label label-warning">No Input</span>
+		</td>
+		<td>
+			There's other stuff here.<input type = "number"/>
+		</td>
+		<td>
+			<div>
+				<span>
+					<input type = "text" value="This one's in a span inside a div"/>
+				</span>
+			</div>
+		</td>
+	</tr>	
+</tbody>
+</table>
+</div>
