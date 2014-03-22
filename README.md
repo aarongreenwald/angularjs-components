@@ -1,4 +1,6 @@
-# AngularJS Components - Reusable Directives and other stuff for AngularJS apps
+# AngularJS Components
+
+Reusable Directives and other stuff for AngularJS apps
 
 ## Usage
 
