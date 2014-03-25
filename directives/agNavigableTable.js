@@ -1,5 +1,18 @@
 
-//on numeric inputs, this will override the spinner
+/********
+Usage: add 'ag-navigable-table' attribute to the tbody or table element.
+You will be able to navigate the table with your arrow keys. Only cells with input boxes within them will be 
+accessible, all others will be skipped. If there's more than one input in a given cell (TD), only the first
+will be accessible.The header won't be included, perhaps support for that will be added later.
+
+textareas and contenteditable divs are not yet supported. 
+
+No dependencies, tested in Chrome and FF. Tables with rows that have varying colspans have not yet been tested. All bets are off.
+
+The arrow key event is cancelled when navigation occurs. This means that for numeric inputs, the spinners the browsers provide
+will only work on the first and last rows of each column.
+****************/ 
+
 angular.module('ag.directives', []).directive('agNavigableTable', function() {
    return {
       restrict: 'A',      
@@ -31,13 +44,13 @@ angular.module('ag.directives', []).directive('agNavigableTable', function() {
 			  
 			  
 			  var destinationInput
-			  var node
+			  var node = startInput
 			  
 			  //walk along the DOM, looking for the destination input 
 			  
 			  //look for the startInput's TD
 			  do { 
-				node = startInput.parentNode
+				node = node.parentNode
 			  } while (node && node.nodeName !== 'TD')
 			  if (!node) return //ill-formed html
 		  
