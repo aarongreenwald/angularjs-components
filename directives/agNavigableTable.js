@@ -119,4 +119,4 @@ angular.module('ag.directives', []).directive('agNavigableTable', function() {
 			  
 		  })
     }
-}});
+}})
