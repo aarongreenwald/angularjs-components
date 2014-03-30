@@ -3,6 +3,9 @@
 A hodge-podge of reusable directives and other stuff for AngularJS apps. 
 I add to this whenever I have a need for something that's sufficiently generic that I might want it somewhere else. 
 
+Download the entire app and run it to test the components and see a demo. Each component is in its own 
+directory, and contains a sample.
+
 ## agNavigableTable
 
 Allows the user to use their keyboard to navigate inputs in a table. It's useful when you have an HTML table
@@ -11,7 +14,7 @@ filled with input boxes, functioning as a grid for user input.
 doesn't mean the users think of the data in a tabular way. Grids should be used only when that's the way the data is 
 organized in a users mind - the stuff that goes in spreadsheets, like financial data.)
 
-The demo app contains a demo of the various ways this works. You can also check out this plunkr for a quick preview: 
+The app contains a demo of the various ways this works. You can also check out this plunkr: 
 http://plnkr.co/edit/R2md6Pt7rpzEkSG4cXHY?p=preview
 
 ###Usage

@@ -6,7 +6,7 @@ var app = angular.module('app', [
 ])
 
 app.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/navigable-table', {templateUrl: 'components/navigable-table.html'});  
+  $routeProvider.when('/navigable-table', {templateUrl: 'navigable-table/navigable-table.html'});  
   $routeProvider.otherwise({redirectTo: '/'});
 }]);
 
