@@ -11,4 +11,8 @@ app.controller('SortableCtrl', ['$scope', function($scope){
 	
 	$scope.listSize=5
 	$scope.setupList(5)
+	
+	$scope.sortableClick = function(){
+		console.log("Click event fired.")
+	}		
 }])

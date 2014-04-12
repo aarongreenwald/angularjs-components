@@ -1,11 +1,17 @@
  <div ng-controller="SortableCtrl" class="container">
   <div class="well well-sm">
-	  Experiment with the length of the lists to see how performance degrades with larger lists. 
+	  <p>Experiment with the length of the lists to see how performance degrades with larger lists. 
 	  This is because after you drop an item in the list, the agSortable directive recalculates the sort 
 	  order of all items in the list, and that process scales with O(n^2).
 	  On this page, the lag begins to become noticeable at around 200-250 items in the list. That's acceptable
 	  performance for most drag-and-drop lists - if your list is longer than that, you may want to rethink your design.
 	  Or submit a patch that improves performance.
+	  </p>
+	  <p>
+		  The sort column is undefined in this case, so there's no sort order until the first time you
+		  move an item. If the data came in with values in the sort column, they'd show here when the 
+		  page first renders (but there's no guarantee the data would actually be sorted by the sort column).
+	  </p>
   </div>
   <div class="row">
 	<div class="col-xs-2">List Length:</div> 
@@ -13,6 +19,7 @@
   </div>
   <div class="row">
 	<div class="col-md-6">
+		This is a table.
 		<table class="table sortable">
 			<thead>
 			  <tr>
@@ -33,24 +40,24 @@
 	<div class="col-md-6">
 	An unordered list, works, too.
   <ul ag-sortable ag-id-column="index" ag-sort-column="sort" ag-sort-list="rows">
-    <li ng-repeat="row in rows">{{row.index}} - {{row.sort}}</li> 
+    <li class="sortable" ng-repeat="row in rows">Index: {{row.index}} - Sort: {{row.sort}}</li> 
   </ul>
 	</div>
   </div>
   
   <div class="well well-sm">
-  And divs...notice that you can't drag it from the input. I think that's good, 
-  although I can't say I put any effort into making it work that way. It also appears
-  that the ng-click events don't fire. That's not good.
-  Try the handle option
+  These are sortable divs...notice that you can't drag it from the input or buttons. I think that's good, 
+  although I can't say I put any effort into making it work that way. Also, notice that there's a click event
+  on the sort column that writes a line to the console. That fires and doesn't interfere with the sorting, 
+  which is nice.
   </div>
   <div ag-sortable ag-id-column="index" ag-sort-column="sort" ag-sort-list="rows">
-    <div ng-repeat="row in rows" class=" container row">
+    <div ng-repeat="row in rows" class=" container row sortable">
       <div class="col-xs-3">Index: {{row.index}}</div>
-      <div class="col-xs-3" ng-click="console.log('hello')">Sort: {{row.sort}}</div>
-      <div class="col-xs-3"><input /> <button >Click Me</button></button></div>
+      <div class="col-xs-3" ng-click="sortableClick()">Sort: {{row.sort}}</div>
+      <div class="col-xs-3"><input /> <button ng-click="sortableClick()" >Click Me</button></button></div>
     </div> 
   </div>  
 <style>
-   .sortable {cursor:pointer;}
+   .sortable {cursor:pointer;}   
  </style>
