@@ -15,7 +15,7 @@ doesn't mean the users think of the data in a tabular way. Grids should be used 
 organized in a users mind - the stuff that goes in spreadsheets, like financial data.)
 
 The app contains a demo of the various ways this works. You can also check out this plunkr: 
-http://plnkr.co/edit/R2md6Pt7rpzEkSG4cXHY?p=preview
+http://plnkr.co/edit/msqya4?p=info
 
 ###Usage
 

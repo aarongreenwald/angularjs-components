@@ -8,13 +8,18 @@
 <body>
 	Demos:	
   <ul>
-    <li><a href="#/navigable-table">Navigable Table</a></li>    
+    <li><a href="#/navigable-table">Navigable Table</a></li>  
+    <li><a href="#/sortable">Sortable</a></li>    
   </ul>
 
   <div ng-view></div>
   
+  <!--jQuery is a dependency for bootstrap, which is just here for styling. agSortable also relies on jQuery-->
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  
+  <!--jQuery UI is used in agSortable -->  
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
@@ -25,6 +30,9 @@
   
   <script src="navigable-table/agNavigableTable.js"></script>
   <script src="navigable-table/navigable-table-controller.js"></script>
+  
+  <script src="sortable/agSortable.js"></script>
+  <script src="sortable/sortable-controller.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,52 @@
+ <style>
+   .sortable > tbody{cursor:pointer;}
+ </style>
+ <div ng-controller="SortableCtrl">
+  <table class="table sortable">
+    <thead>
+      <tr>
+        <th>Index</th>
+        <th>Sort</th>
+      </tr>
+    </thead>
+    <tbody ag-sortable ag-id-column="index" ag-sort-column="sort" ag-sort-list="rows">
+    <tr ng-repeat="row in rows" >
+      <!--hidden column with a unique identifier called index TODO eliminate the need for this-->
+     <!-- <td style="display:none" class="index-column"><input ng-model="row.index"/></td>-->
+      <td>{{row.index}}</td>
+      <td>{{row.sort}}</td>
+    </tr>
+    </tbody>
+  </table>
+  An unordered list, works, too.
+  <ul ag-sortable ag-id-column="index" ag-sort-column="sort" ag-sort-list="rows">
+    <li ng-repeat="row in rows">{{row.index}} - {{row.sort}}</li> 
+  </ul>
+  
+  And divs...notice that you can't drag it from the input. I think that's good, 
+  although I can't say I put any effort into making it work that way. It also appears
+  that the ng-click events don't fire. That's not good.
+  Try the handle option
+  
+  <div ag-sortable ag-id-column="index" ag-sort-column="sort" ag-sort-list="rows">
+    <div ng-repeat="row in rows" class=" container row">
+      <div class="col-xs-3">Index: {{row.index}}</div>
+      <div class="col-xs-3" ng-click="console.log('hello')">Sort: {{row.sort}}</div>
+      <div class="col-xs-3"><input /> <button ng-click="console.log('hello')">Click Me</button></button></div>
+    </div> 
+  </div>
+  
+  
+  <div class="alert">
+  The following table isn't sortable, and is bound to the same model values as the 
+  previous, sortable table. Notice how the model bindings move with the sorting.
+  </div>
+  
+  <table class="table ">
+    <tr ng-repeat="row in rows">
+      <td>{{row.index}}</td>
+      <td>{{row.sort}}</td>
+    
+    </tr>
+  </table>
+</div>
