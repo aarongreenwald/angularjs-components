@@ -11,14 +11,16 @@ No dependencies, tested in Chrome and FF. Tables with rows that have varying col
 
 The arrow key event is cancelled regardless of whether navigation occurs, so the the arrow keys will behave the same
 on the ends as they do in the middle of the table. The event won't be cancelled if the HTML isn't formed correctly.
+ 
+Assumes ag.directives module already exists.
 ****************/ 
 
-angular.module('ag.directives', []).directive('agNavigableTable', function() {
+ag.directives.directive('agNavigableTable', function() {
    return {
       restrict: 'A',
       scope: {
 		  agNavigableTable: '@'
-		  },      
+	  },      
       link: function(scope, el){
 		  var firstVisibleInput = function(node, tdIndex){			  
 			  if (tdIndex !== undefined){

@@ -23,4 +23,4 @@ app.controller('NavigableTableCtrl', ['$scope', function($scope){
 			}
 		}
 		
-		}])
+}])

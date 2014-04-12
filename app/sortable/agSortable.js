@@ -1,6 +1,9 @@
-//angular.module('app', ['ag.directives'])
-
-angular.module('ag.directives', []).directive('agSortable', function() {
+/***********************
+Relies on jQuery and jQueryUI
+ 
+Assumes ag.directives module already exists.
+********************/
+ag.directives.directive('agSortable', function() {
    return {
       restrict: 'A',      
       scope: {
