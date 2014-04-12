@@ -14,7 +14,7 @@ ag.directives.directive('agSortable', function() {
       link: function(scope, el, attrs, ngModel){
         
           var sortableElement = el
-          scope.$watch(function(){return el},
+          scope.$watch(function(){return scope.agSortList},
             function(){
               var items = sortableElement.children()
               for (var i=0; i< items.length; i++){

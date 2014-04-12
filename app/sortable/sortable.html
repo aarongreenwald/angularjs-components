@@ -1,6 +1,11 @@
  <div ng-controller="SortableCtrl" class="container">
-  <div class="alert">
-	  Experiment with the length of the lists to see how performance degrades with larger lists.
+  <div class="well well-sm">
+	  Experiment with the length of the lists to see how performance degrades with larger lists. 
+	  This is because after you drop an item in the list, the agSortable directive recalculates the sort 
+	  order of all items in the list, and that process scales with O(n^2).
+	  On this page, the lag begins to become noticeable at around 200-250 items in the list. That's acceptable
+	  performance for most drag-and-drop lists - if your list is longer than that, you may want to rethink your design.
+	  Or submit a patch that improves performance.
   </div>
   <div class="row">
 	<div class="col-xs-2">List Length:</div> 
@@ -33,17 +38,17 @@
 	</div>
   </div>
   
-  
+  <div class="well well-sm">
   And divs...notice that you can't drag it from the input. I think that's good, 
   although I can't say I put any effort into making it work that way. It also appears
   that the ng-click events don't fire. That's not good.
   Try the handle option
-  
+  </div>
   <div ag-sortable ag-id-column="index" ag-sort-column="sort" ag-sort-list="rows">
     <div ng-repeat="row in rows" class=" container row">
       <div class="col-xs-3">Index: {{row.index}}</div>
       <div class="col-xs-3" ng-click="console.log('hello')">Sort: {{row.sort}}</div>
-      <div class="col-xs-3"><input /> <button ng-click="console.log('hello')">Click Me</button></button></div>
+      <div class="col-xs-3"><input /> <button >Click Me</button></button></div>
     </div> 
   </div>  
 <style>
